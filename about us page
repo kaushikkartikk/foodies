@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Foodies Restaurant</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 50px 0;
+            background: #1f1f1f;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            color: #ffdb58;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-us-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-us-container .text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .about-us-container .text p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #fff;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .about-us-container .text .mission {
+            font-weight: bold;
+            color: #ffdb58;
+            margin-top: 20px;
+        }
+
+        .about-us-container .image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-us-container .text .button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #ffdb58;
+            color: #1f1f1f;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-us-container .text .button:hover {
+            transform: scale(1.1);
+            background-color: #ffef8e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-us-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-us-container .image img {
+                max-width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- About Us Section -->
+    <section id="about-us">
+        <h2>About Us</h2>
+        <div class="about-us-container">
+            <div class="text">
+                <p>At <strong>Foodies</strong>, we're passionate about bringing the best and freshest food to your
+                    table. We specialize in serving delicious vegetarian meals, irresistible fast food, and refreshing
+                    beverages to satisfy all your cravings. Our dedicated team of chefs work tirelessly to ensure every
+                    dish is a masterpiece!</p>
+
+                <p>Our restaurant offers a comfortable, family-friendly atmosphere where guests can enjoy a warm and
+                    welcoming dining experience. Whether you're here for a quick lunch, a cozy dinner, or a special
+                    celebration, Foodies is the place where food lovers come together.</p>
+
+                <p class="mission">Mission: To serve wholesome, delightful, and innovative dishes that not only taste
+                    great but also reflect the values of our community and culture.</p>
+
+                <p>At Foodies, we believe that food is more than just fuel—it's an experience to be shared with friends,
+                    family, and loved ones. Join us today and embark on a culinary journey like no other!</p>
+
+                <a href="ordering page.html" class="button">Explore Our Menu</a>
+            </div>
+
+            <div class="image">
+                <img src="" C:\Users\lenovo\Desktop\Screenshot 2025-01-30 122050.png"" alt="Restaurant Image">
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
