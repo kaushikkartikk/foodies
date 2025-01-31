@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Foodies</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -14,11 +15,10 @@
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #199b8c 45%, #362b2b 55%);
             color: white;
-            height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            height: 100vh;
             justify-content: center;
+            align-items: center;
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -26,17 +26,20 @@
             0% {
                 opacity: 0;
             }
+
             100% {
                 opacity: 1;
             }
         }
 
-        .container {
-            text-align: center;
-            max-width: 700px;
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1100px;
+            width: 100%;
+            background: linear-gradient(135deg, #312e2d, #9e9594);
             padding: 50px;
-            background: linear-gradient(135deg, #312e2d, #9e9594); 
-            color: white;
             border-radius: 15px;
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
             transform: translateY(30px);
@@ -48,15 +51,36 @@
             0% {
                 transform: translateY(30px);
             }
+
             100% {
                 transform: translateY(0);
             }
         }
 
+        .left-side {
+            flex: 1;
+            padding-right: 30px;
+            text-align: center;
+        }
+
+        .left-side img {
+            width: 100%;
+            max-width: 450px;
+            /* Adjust this as needed */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .right-side {
+            flex: 1;
+            text-align: left;
+            color: white;
+        }
+
         .logo {
             font-family: 'Pacifico', cursive;
             font-size: 70px;
-            color: #379bc2;
+            color: #f70505;
             text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
             margin-bottom: 20px;
             animation: bounceIn 1.5s ease-in-out;
@@ -67,10 +91,12 @@
                 transform: translateY(-100px);
                 opacity: 0;
             }
+
             60% {
                 transform: translateY(10px);
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(0);
             }
@@ -83,7 +109,7 @@
             color: #ffeb3b;
             text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
             animation: fadeInQuote 1.5s ease-in-out;
-            border: 2px solid #10cee7; /* Red border added */
+            border: 2px solid #10cee7;
             padding: 15px;
             border-radius: 10px;
             background-color: rgba(0, 0, 0, 0.5);
@@ -93,6 +119,7 @@
             0% {
                 opacity: 0;
             }
+
             100% {
                 opacity: 1;
             }
@@ -105,7 +132,7 @@
             margin-bottom: 30px;
             font-weight: 300;
             color: #0cd488;
-            border: 2px solid #0ae6db; /* Red border added */
+            border: 2px solid #0ae6db;
             padding: 15px;
             border-radius: 10px;
             background-color: rgba(0, 0, 0, 0.5);
@@ -114,47 +141,45 @@
         .get-started {
             display: inline-block;
             padding: 15px 40px;
-            background: #6fb69e; /* Default background color */
+            background: #6fb69e;
             color: white;
             text-decoration: none;
             font-size: 22px;
             font-weight: bold;
             border-radius: 30px;
-            box-shadow: 
-                0 10px 25px rgba(1, 88, 114, 0.5),  /* Orange shadow */
-                0 12px 30px rgba(43, 200, 240, 0.63); /* Yellow shadow */
+            box-shadow: 0 10px 25px rgba(1, 88, 114, 0.5), 0 12px 30px rgba(43, 200, 240, 0.63);
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid #ff5722;
         }
 
-        /* On hover, background color changes */
         .get-started:hover {
             transform: scale(1.1);
-            background-color: #ff6f61; /* New color on hover */
-            box-shadow: 
-                0 10px 35px rgba(136, 110, 102, 0.6), /* Stronger orange shadow */
-                0 14px 40px rgba(196, 191, 177, 0.8); /* Stronger yellow shadow */
+            background-color: #ff6f61;
+            box-shadow: 0 10px 35px rgba(136, 110, 102, 0.6), 0 14px 40px rgba(196, 191, 177, 0.8);
         }
 
         .get-started:active {
             transform: scale(1);
             background-color: #80998f;
         }
-        
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="logo">Foodies</div>
-        <div class="quote">"Savor the Flavor of Life!"</div>
-        <div class="welcome-message">
-            Welcome to Foodies, where taste meets tradition. Dive into a world of delectable vegetarian meals,
-            refreshing drinks, irresistible fast food, and satisfying combos. Your food adventure begins here!
+    <div class="content-container">
+        <div class="left-side">
+            <img src="c:\Users\lenovo\Desktop\Screenshot 2025-01-31 101003.png" alt="Restaurant Image">
         </div>
-        <a href="ordering page.html" class="get-started">Get Started</a>
+        <div class="right-side">
+            <div class="logo">Foodies</div>
+            <div class="quote">"Savor the Flavor of Life!"</div>
+            <div class="welcome-message">
+                Welcome to Foodies, where taste meets tradition. Dive into a world of delectable vegetarian meals,
+                refreshing drinks, irresistible fast food, and satisfying combos. Your food adventure begins here!
+            </div>
+            <a href="ordering page.html" class="get-started">Get Started</a>
+        </div>
     </div>
-
 </body>
 
 </html>
