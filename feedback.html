@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      label {
+        font-size: 18px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      input {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .star-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      .star {
+        font-size: 24px;
+        cursor: pointer;
+        color: gray;
+      }
+      .star.selected {
+        color: rgb(255, 238, 7);
+      }
+      button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: green;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="ratingForm">
+      <label>
+        Your Name
+        <input type="text" required id="name" placeholder="Enter your name" />
+      </label>
+      <label>
+        Your Email
+        <input type="email" required id="email" placeholder="Enter your mail" />
+      </label>
+      <label>
+        Your Rating
+        <div class="star-container" id="starContainer"></div>
+        <input type="hidden" required id="rating" name="rating" value="0" />
+      </label>
+      <button type="submit" id="submitBtn">Submit Rating</button>
+    </form>
+
+    <script>
+      let rating = 0;
+      const starContainer = document.getElementById("starContainer");
+      const ratingInput = document.getElementById("rating");
+
+      function updateStars(selectedRating) {
+        rating = selectedRating;
+        ratingInput.value = rating;
+        const stars = document.querySelectorAll(".star");
+        stars.forEach((star, index) => {
+          star.classList.toggle("selected", index < rating);
+        });
+      }
+
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.textContent = "★";
+        star.classList.add("star");
+        star.addEventListener("click", () => updateStars(i));
+        starContainer.appendChild(star);
+      }
+
+      document
+        .getElementById("ratingForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          document.getElementById("submitBtn").textContent = "Submitting...";
+
+          const formData = new FormData();
+          formData.append("fullName", document.getElementById("name").value);
+          formData.append("email", document.getElementById("email").value);
+          formData.append("access_key", "75409500-d1d0-458b-8e3f-92ff9a4b2ffc");
+          formData.append("rating", rating.toString());
+
+          try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(Object.fromEntries(formData)),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+              alert("Thank you for your rating!");
+              updateStars(0);
+            } else {
+              alert("Error submitting rating: " + result.message);
+            }
+          } catch (error) {
+            alert("Unexpected error occurred: " + error);
+          } finally {
+            document.getElementById("submitBtn").textContent = "Submit Rating";
+          }
+        });
+    </script>
+  </body>
+</html>
